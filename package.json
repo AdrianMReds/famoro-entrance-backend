@@ -1,0 +1,25 @@
+{
+  "name": "famoro-entrance-backend",
+  "version": "1.0.0",
+  "description": "Backend de aplicación de Famoro",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianMReds/famoro-entrance-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrianMReds/famoro-entrance-backend/issues"
+  },
+  "homepage": "https://github.com/AdrianMReds/famoro-entrance-backend#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}
