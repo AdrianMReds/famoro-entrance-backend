@@ -1,6 +1,12 @@
-import express from "express";
+import { connectDB } from "./db.js";
+import app from "./app.js";
+connectDB();
+import { port } from "./config/environment/index.js";
 
-const app = express();
-
-app.listen(3000);
-console.log("Server on port 3000");
+try {
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+} catch (error) {
+  console.log(error);
+}
