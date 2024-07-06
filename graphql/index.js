@@ -1,6 +1,6 @@
 import { ApolloServer } from "apollo-server-express";
 import schema from "./schema.js";
-import { env } from "../config/environment/index.js";
+import { env } from "../config/environment";
 
 const playgroundSettings = {
   settings: {

@@ -3,7 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import http from "http";
 import auth from "./routes/auth.js";
-import graphqlServer from "./graphql/index.js";
+import graphqlServer from "./graphql";
 
 const app = express();
 
