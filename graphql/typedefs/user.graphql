@@ -2,6 +2,7 @@
 type User implements Timestamps {
   id: ID!
   name: String!
+  lastname: String!
   email: String!
   birthday: Date
   type: UserTypes!

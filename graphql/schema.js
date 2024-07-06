@@ -1,12 +1,7 @@
-import { join, dirname } from "path";
+import { join } from "path";
 import { readdirSync, readFileSync } from "fs";
-import { fileURLToPath } from "url";
 import { makeExecutableSchema } from "@graphql-tools/schema";
-import resolvers from "./resolvers/index.js";
-
-// Convierte import.meta.url a una ruta de archivo
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import resolvers from "./resolvers";
 
 const gqlFiles = readdirSync(join(__dirname, "./typedefs"));
 

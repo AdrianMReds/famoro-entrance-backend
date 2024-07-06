@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "description": "Backend de aplicación de Famoro",
-  "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon ./index.js --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -18,10 +17,17 @@
     "url": "https://github.com/AdrianMReds/famoro-entrance-backend/issues"
   },
   "homepage": "https://github.com/AdrianMReds/famoro-entrance-backend#readme",
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "nodemon": "^3.1.4"
+  },
   "dependencies": {
     "@apollo/server": "^4.10.4",
     "@graphql-tools/schema": "^10.0.4",
     "apollo-server-express": "^3.13.0",
+    "babel-plugin-module-resolver": "^5.0.2",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -29,7 +35,6 @@
     "express": "^4.19.2",
     "graphql": "^16.9.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.4",
-    "nodemon": "^3.1.4"
+    "mongoose": "^8.4.4"
   }
 }
