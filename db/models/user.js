@@ -22,7 +22,11 @@ const UserSchema = mongoose.Schema(
       default: "normal",
     },
     // categorias: [String], // Este campo se usará después para colonias o edificios que tengan diferentes áreas con diferentes accesos
-    // establecimiento: { type: mongoose.Schema.Types.ObjectId, ref: 'Establecimiento' } // Este campo se usará después
+    establishment: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Establishment",
+      required: true,
+    },
   },
   { timestamps: true }
 );
