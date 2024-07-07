@@ -28,7 +28,7 @@ const GuestSchema = mongoose.Schema(
       ref: "Establishment",
       required: true,
     },
-    id: {
+    idSaved: {
       type: Boolean,
       default: false,
     },

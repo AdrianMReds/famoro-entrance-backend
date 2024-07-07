@@ -1,0 +1,27 @@
+# Types
+type Access implements Timestamps {
+  establishment: Establishment!
+  initial_date: Date!
+  final_date: Date!
+  infinite: Boolean
+  user: User!
+  guest: Guest!
+
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+input AccessCreateInput {
+  establishment: ID!
+  initial_date: Date!
+  final_date: Date!
+  infinite: Boolean
+  user: ID!
+  guest: ID!
+}
+
+input AccessUpdateInput {
+  initial_date: Date!
+  final_date: Date!
+  infinite: Boolean
+}

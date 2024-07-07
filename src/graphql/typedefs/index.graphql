@@ -5,10 +5,44 @@ type Query {
   #Users
   users: [User]!
   user(id: ID!): User
+
+  #Access
+  accesses: [Access]!
+  access(id: ID!): Access
+
+  #EntranceLog
+  entranceLogs: [EntranceLog]!
+  entranceLog(id: ID!): EntranceLog
+
+  #Establishment
+  establishments: [Establishment]!
+  establishment(id: ID!): Establishment
+
+  #Guest
+  guests: [Guest]!
+  guest(id: ID!): Guest
 }
 
 type Mutation {
   #Users
   createUser(user: UserCreateInput!): User!
   updateUser(id: ID!, user: UserUpdateInput!): User!
+
+  #Access
+  createAccess(access: AccessCreateInput!): Access!
+  updateAccess(id: ID!, access: AccessUpdateInput!): Access!
+
+  #EntranceLog
+  createEntranceLog(entranceLog: EntranceLogCreateInput!): EntranceLog!
+
+  #Establishment
+  createEstablishment(establishment: EstablishmentCreateInput!): Establishment!
+  updateEstablishment(
+    id: ID!
+    establishment: EstablishmentUpdateInput!
+  ): Establishment!
+
+  #Guest
+  createGuest(guest: GuestCreateInput!): Guest!
+  updateGuest(id: ID!, guest: GuestUpdateInput!): Guest!
 }

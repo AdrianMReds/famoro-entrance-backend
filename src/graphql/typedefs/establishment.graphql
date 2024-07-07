@@ -1,0 +1,22 @@
+# Types
+type Establishment implements Timestamps {
+  id: ID!
+  name: String!
+  address: String!
+  admins: [User]
+
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+input EstablishmentCreateInput {
+  name: String!
+  address: String!
+  admins: [ID]
+}
+
+input EstablishmentUpdateInput {
+  name: String
+  address: String
+  admins: [ID]
+}

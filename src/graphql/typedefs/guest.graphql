@@ -1,0 +1,32 @@
+# Types
+type Guest implements Timestamps {
+  user: User!
+  name: String!
+  lastname: String!
+  email: String
+  phoneNumber: String
+  establishment: Establishment!
+  idSaved: Boolean
+
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+# Inputs
+input GuestCreateInput {
+  user: ID!
+  name: String!
+  lastname: String!
+  email: String
+  phoneNumber: String
+  establishment: ID!
+  idSaved: Boolean
+}
+
+# No se podrá hacer update si idSaved es true
+input GuestUpdateInput {
+  name: String
+  lastname: String
+  email: String
+  phoneNumber: String
+}

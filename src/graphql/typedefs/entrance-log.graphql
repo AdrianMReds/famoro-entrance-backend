@@ -1,0 +1,17 @@
+# Types
+type EntranceLog implements Timestamps {
+  establishment: Establishment!
+  guest: Guest!
+  user: User!
+  access: Access!
+
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+input EntranceLogCreateInput {
+  establishment: ID!
+  guest: ID!
+  user: ID!
+  access: ID!
+}
