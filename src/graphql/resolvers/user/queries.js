@@ -1,8 +1,11 @@
 import { User } from "@models";
 
 const userQueries = {
-  users: async (_, args) => {
+  users: async (_, args, { user, authScope }) => {
     const users = User.find();
+
+    console.log(user);
+    console.log(authScope);
 
     return users;
   },

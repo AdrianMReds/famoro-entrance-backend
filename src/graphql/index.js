@@ -1,6 +1,7 @@
 import { ApolloServer } from "apollo-server-express";
 import schema from "./schema.js";
 import { env } from "../config/environment";
+import context from "./context";
 
 const playgroundSettings = {
   settings: {
@@ -13,6 +14,7 @@ const playgroundSettings = {
 const apolloServer = new ApolloServer({
   schema,
   playground: env.development,
+  context: (args) => context({ ...args }),
 });
 
 export default apolloServer;
