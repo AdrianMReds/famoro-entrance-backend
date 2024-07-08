@@ -7,3 +7,5 @@ const establishmentMutations = {
     return newEstablishment.save();
   },
 };
+
+export default establishmentMutations;
