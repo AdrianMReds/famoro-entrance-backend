@@ -1,5 +1,6 @@
 # Types
 type Access implements Timestamps {
+  id: ID!
   establishment: Establishment!
   initial_date: Date!
   final_date: Date!

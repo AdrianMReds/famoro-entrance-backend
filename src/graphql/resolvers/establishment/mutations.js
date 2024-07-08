@@ -6,6 +6,14 @@ const establishmentMutations = {
 
     return newEstablishment.save();
   },
+  updateEstablishment: async (_, { id, establishment }) => {
+    const updatedEstablishment = Establishment.findByIdAndUpdate(
+      id,
+      { $set: establishment },
+      { new: true, runValidators: true }
+    );
+    return updatedEstablishment;
+  },
 };
 
 export default establishmentMutations;
