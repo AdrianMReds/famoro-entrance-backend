@@ -14,7 +14,8 @@ const playgroundSettings = {
 const apolloServer = new ApolloServer({
   schema,
   playground: env.development,
-  context: (args) => context({ ...args }),
+  // context: (args) => context({ ...args }),
+  context,
 });
 
 export default apolloServer;
