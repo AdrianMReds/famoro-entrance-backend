@@ -1,10 +1,12 @@
 import { Establishment } from "@models";
 
 const establishmentMutations = {
-  createEstablishment: async (_, { establishment }) => {
+  createEstablishment: async (_, { establishment }, { loaders }) => {
     const newEstablishment = new Establishment(establishment);
 
-    return newEstablishment.save();
+    const savedEstablishment = await newEstablishment.save();
+
+    return loaders.establishment.one(savedEstablishment._id);
   },
   updateEstablishment: async (_, { id, establishment }) => {
     const updatedEstablishment = Establishment.findByIdAndUpdate(
@@ -12,7 +14,7 @@ const establishmentMutations = {
       { $set: establishment },
       { new: true, runValidators: true }
     );
-    return updatedEstablishment;
+    return loaders.establishment.one(updatedEstablishment._id);
   },
 };
 

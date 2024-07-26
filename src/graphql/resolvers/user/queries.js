@@ -1,17 +1,12 @@
 import { User } from "@models";
 
 const userQueries = {
-  users: async (_, args, { user, authScope, loaders }) => {
+  users: async (_, args, { authScope, loaders }) => {
     const users = await User.find();
-
-    console.log(loaders);
 
     return loaders.user.many(users.map(({ id }) => id));
   },
-  user: async (_, { id }) => {
-    const user = User.findById(id);
-    return user;
-  },
+  user: async (_, { id }, { loaders }) => loaders.user.one(id),
 };
 
 export default userQueries;

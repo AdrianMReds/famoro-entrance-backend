@@ -1,16 +1,26 @@
 import { User } from "@models";
+import bcrypt from "bcryptjs";
 
 const userMutations = {
-  createUser: async (_, { user }, { authScope }) => {
+  createUser: async (_, { user }, { authScope, loaders }) => {
     if (authScope === "superadmin" || authScope === "admin") {
-      const newUser = new User(user);
-      return newUser.save();
+      const salt = await bcrypt.genSalt();
+      const hashedPassword = await bcrypt.hash(user.password, salt);
+
+      const newUser = new User({
+        ...user,
+        password: hashedPassword,
+      });
+
+      const savedUser = await newUser.save();
+
+      return loaders.user.one(savedUser._id);
     } else {
       console.log("Not authorized");
       return {};
     }
   },
-  updateUser: async (_, { id, user }, { authScope }) => {
+  updateUser: async (_, { id, user }, { authScope, loaders }) => {
     console.log(authScope);
     if (authScope === "superadmin" || authScope === "admin") {
       const updatedUser = User.findByIdAndUpdate(
@@ -18,7 +28,7 @@ const userMutations = {
         { $set: user },
         { new: true, runValidators: true }
       );
-      return updatedUser;
+      return loaders.user.one(updatedUser._id);
     } else {
       console.log("Not authorized");
       return {};

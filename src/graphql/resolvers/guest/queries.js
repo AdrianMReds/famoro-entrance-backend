@@ -1,14 +1,11 @@
 import { Guest } from "@models";
 
 const guestQueries = {
-  guests: async (_, args) => {
+  guests: async (_, args, { loaders }) => {
     const guests = Guest.find();
-    return guests;
+    return loaders.guest.many(guests.map(({ id }) => id));
   },
-  guest: async (_, { id }) => {
-    const guest = Guest.findById(id);
-    return guest;
-  },
+  guest: async (_, { id }, { loaders }) => loaders.guest.one(id),
 };
 
 export default guestQueries;

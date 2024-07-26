@@ -1,9 +1,12 @@
 import { EntranceLog } from "@models";
 
 const entranceLogMutations = {
-  createEntranceLog: async (_, { entranceLog }) => {
+  createEntranceLog: async (_, { entranceLog }, { loaders }) => {
     const newEntranceLog = new EntranceLog(entranceLog);
-    return newEntranceLog.save();
+
+    const savedEntranceLog = await newEntranceLog.save();
+
+    return loaders.entranceLog.one(savedEntranceLog._id);
   },
   // Los entranceLogs no se pueden modificar
 };

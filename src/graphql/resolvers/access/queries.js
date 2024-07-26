@@ -1,15 +1,12 @@
 import { Access } from "@models";
 
 const accessQueries = {
-  accesses: async (_, args) => {
+  accesses: async (_, args, { loaders }) => {
     const accesses = Access.find();
 
-    return accesses;
+    return loaders.access.many(accesses.map(({ id }) => id));
   },
-  access: async (_, { id }) => {
-    const access = Access.findById(id);
-    return access;
-  },
+  access: async (_, { id }, { loaders }) => loaders.access.one(id),
 };
 
 export default accessQueries;

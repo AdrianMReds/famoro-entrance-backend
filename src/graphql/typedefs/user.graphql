@@ -16,6 +16,7 @@ type User implements Timestamps {
 
 input UserCreateInput {
   name: String!
+  lastname: String!
   email: String!
   password: String!
   birthday: Date

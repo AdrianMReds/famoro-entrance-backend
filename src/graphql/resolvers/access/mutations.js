@@ -1,18 +1,20 @@
 import { Access } from "@models";
 
 const accessMutations = {
-  createAccess: async (_, { access }) => {
+  createAccess: async (_, { access }, { loaders }) => {
     const newAccess = new Access(access);
 
-    return newAccess.save();
+    const savedAccess = await newAccess.save();
+
+    return loaders.access.one(savedAccess._id);
   },
-  updateAccess: async (_, { id, access }) => {
+  updateAccess: async (_, { id, access }, { loaders }) => {
     const updatedAccess = await Access.findByIdAndUpdate(
       id,
       { $set: access },
       { new: true, runValidators: true }
     );
-    return updatedAccess;
+    return loaders.access.one(updatedAccess._id);
   },
 };
 export default accessMutations;

@@ -1,17 +1,20 @@
 import { Guest } from "@models";
 
 const guestMutations = {
-  createGuest: async (_, { guest }) => {
+  createGuest: async (_, { guest }, { loaders }) => {
     const newGuest = new Guest(guest);
-    return newGuest.save();
+
+    const savedGuest = await newGuest.save();
+
+    return loaders.guest.one(savedGuest._id);
   },
-  updateGuest: async (_, { id, guest }) => {
+  updateGuest: async (_, { id, guest }, { loaders }) => {
     const updatedGuest = await Guest.findByIdAndUpdate(
       id,
       { $set: guest },
       { new: true, runValidators: true }
     );
-    return updatedGuest;
+    return loaders.guest.one(updatedGuest._id);
   },
 };
 
