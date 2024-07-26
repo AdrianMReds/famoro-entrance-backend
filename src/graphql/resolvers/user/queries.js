@@ -4,6 +4,8 @@ const userQueries = {
   users: async (_, args, { user, authScope, loaders }) => {
     const users = await User.find();
 
+    console.log(loaders);
+
     return loaders.user.many(users.map(({ id }) => id));
   },
   user: async (_, { id }) => {

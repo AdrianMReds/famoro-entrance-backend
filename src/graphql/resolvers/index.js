@@ -6,8 +6,6 @@ let resolvers = {
   Mutation: {},
 };
 
-console.log(__dirname);
-
 (function loadResolvers(dir) {
   fs.readdirSync(dir).forEach((file) => {
     const path = join(dir, file);
