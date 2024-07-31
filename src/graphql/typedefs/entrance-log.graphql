@@ -10,6 +10,11 @@ type EntranceLog implements Timestamps {
   updatedAt: Date!
 }
 
+type EntranceLogs {
+  info: Info!
+  results: [EntranceLog]!
+}
+
 input EntranceLogCreateInput {
   establishment: ID!
   guest: ID!

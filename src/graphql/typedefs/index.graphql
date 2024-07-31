@@ -3,19 +3,19 @@ scalar Date
 
 type Query {
   #Users
-  users: [User]!
+  users(params: QueryParams): Users!
   user(id: ID!): User
 
   #Access
-  accesses: [Access]!
+  accesses(params: QueryParams): Accesses!
   access(id: ID!): Access
 
   #EntranceLog
-  entranceLogs: [EntranceLog]!
+  entranceLogs(params: QueryParams): EntranceLogs!
   entranceLog(id: ID!): EntranceLog
 
   #Establishment
-  establishments: [Establishment]!
+  establishments(params: QueryParams): Establishments
   establishment(id: ID!): Establishment
 
   #Guest

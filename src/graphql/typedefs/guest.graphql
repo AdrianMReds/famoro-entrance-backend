@@ -13,6 +13,11 @@ type Guest implements Timestamps {
   updatedAt: Date!
 }
 
+type Guests {
+  info: Info!
+  results: [Guest]!
+}
+
 # Inputs
 input GuestCreateInput {
   user: ID!

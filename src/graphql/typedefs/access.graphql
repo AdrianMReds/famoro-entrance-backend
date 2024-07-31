@@ -12,6 +12,11 @@ type Access implements Timestamps {
   updatedAt: Date!
 }
 
+type Accesses {
+  info: Info!
+  results: [Access]!
+}
+
 input AccessCreateInput {
   establishment: ID!
   initial_date: Date!
