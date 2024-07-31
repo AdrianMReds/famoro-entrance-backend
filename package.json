@@ -4,7 +4,8 @@
   "main": "index.js",
   "description": "Backend de aplicación de Famoro",
   "scripts": {
-    "dev": "nodemon -e js,json,graphql src --exec babel-node"
+    "dev": "nodemon -e js,json,graphql src --exec babel-node",
+    "db:seed": "babel-node ./src/db/scripts/seed.js"
   },
   "repository": {
     "type": "git",
