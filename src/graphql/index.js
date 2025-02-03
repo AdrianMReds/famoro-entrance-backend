@@ -16,6 +16,7 @@ const apolloServer = new ApolloServer({
   playground: env.development,
   // context: (args) => context({ ...args }),
   context,
+  introspection: env.production !== true,
 });
 
 export default apolloServer;

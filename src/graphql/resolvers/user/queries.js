@@ -6,11 +6,14 @@ const userQueries = {
     { params = { page: 1, pageSize: 20 } },
     { authScope, loaders }
   ) => {
+    const { pageSize, page } = params;
     return {
       results: async () => {
         const users = await User.find()
           .skip(pageSize * (page - 1))
           .limit(pageSize);
+
+        console.log(users);
 
         return loaders.user.many(users.map(({ id }) => id));
       },

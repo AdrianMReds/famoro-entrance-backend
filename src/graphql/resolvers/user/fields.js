@@ -1,7 +1,11 @@
 const userFields = {
   User: {
     establishment: async ({ establishment }, _, { loaders }) => {
-      return loaders.establishment.one(establishment);
+      if (establishment) {
+        return loaders.establishment.one(establishment);
+      } else {
+        return null;
+      }
     },
   },
 };

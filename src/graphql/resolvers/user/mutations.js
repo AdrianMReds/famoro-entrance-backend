@@ -23,7 +23,7 @@ const userMutations = {
   updateUser: async (_, { id, user }, { authScope, loaders }) => {
     console.log(authScope);
     if (authScope === "superadmin" || authScope === "admin") {
-      const updatedUser = User.findByIdAndUpdate(
+      const updatedUser = await User.findByIdAndUpdate(
         id,
         { $set: user },
         { new: true, runValidators: true }

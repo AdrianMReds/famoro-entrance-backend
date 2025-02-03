@@ -10,9 +10,11 @@ const establishmentQueries = {
 
     return {
       results: async () => {
-        const establishments = Establishment.find()
+        const establishments = await Establishment.find()
           .skip(pageSize * (page - 1))
           .limit(pageSize);
+
+        console.log(establishments);
 
         return loaders.establishment.many(establishments.map(({ id }) => id));
       },

@@ -19,7 +19,7 @@ type Query {
   establishment(id: ID!): Establishment
 
   #Guest
-  guests: [Guest]!
+  guests(params: QueryParams): Guests!
   guest(id: ID!): Guest
 }
 
